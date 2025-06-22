@@ -16,9 +16,11 @@ About the dataset: The dataset contains the features that help us use them to tr
 	• Money spent yearly - in dollars
 Out of these we will only use the numerical data for understanding the correlations between various features and our target variable i.e. Money spent yearly
 
-EDA (Elaborative Data Analysis)
+**EDA (Elaborative Data Analysis)**
+
 **Time spent on App vs Yearly amount spent**
 
+![image](https://github.com/praveen-neshvi/Linear-Regression-for-Yearly-expenses-of-Ecommerce-Clients/blob/main/Images/Screenshot%202025-06-22%20at%204.50.42%E2%80%AFPM.png?raw=true)
 
 The areas of scatter plot that have darker colour say that there are more points in that area.
 
@@ -28,9 +30,13 @@ There isn't any correlation between Time on Website and Yearly Amount Spent.
 
 **Time Spent on App vs Yearly Amount Spent**
 
+![image](https://github.com/praveen-neshvi/Linear-Regression-for-Yearly-expenses-of-Ecommerce-Clients/blob/main/Images/Screenshot%202025-06-22%20at%204.58.48%E2%80%AFPM.png?raw=true)
+
 There is a faint correlation between Time on Website and Yearly Amount Spent. More time spent on App, more likely the client will spend the amount per year.
 
 **Correlation between Yearly Amount Spent vs All the variables**
+
+![image](https://github.com/praveen-neshvi/Linear-Regression-for-Yearly-expenses-of-Ecommerce-Clients/blob/main/Images/Screenshot%202025-06-22%20at%205.06.40%E2%80%AFPM.png?raw=true)
 
 It can be observed that 
 	• faint correlation between Average Session length and Yearly Amount Spent.
@@ -40,9 +46,13 @@ It can be observed that
 
 Seaborn's lmplot() stands for "linear model plot. It combines a scatter plot and a regression line (fitted using statsmodels or scipy)
 
+**Correlation between Yearly Amount Spent vs Length of Membership (using lmplot)**
+
+![image](https://github.com/praveen-neshvi/Linear-Regression-for-Yearly-expenses-of-Ecommerce-Clients/blob/main/Images/Screenshot%202025-06-22%20at%205.16.39%E2%80%AFPM.png?raw=true)
+
 Linear Regression: Goal is to create a line which will be close to all the points. This closeness can be measured by a loss function called Mean Squared Error (MSE). The smaller the MSE the smaller will be the loss and we find the line that leads to minimum MSE.
 
-Training data vs Testing Data
+**Training data vs Testing Data**
 
 We will train model on 70% of data set and test on the remaining 30% . We use the train_test_split utility from the package sklearn.model_selection.
 
@@ -51,7 +61,7 @@ We use code:
 	
 Random_state = Without random_state, train_test_split() will give you different results every time (since it shuffles randomly by default). It ensures the same split every time you run your code — which is crucial for reproducibility.
 
-Training the model
+**Training the model**
 
 We already have python packages that have built in models. One we will use here is LinearRegression from the package of sklearn.linear_model
 
@@ -60,9 +70,12 @@ We just have to initialize the model and the use code:
 => This will create a line that is closest to all the points of our dataset
 
 
-Evaluation of our linear model
+**Evaluation of our linear model**
 
 We do this to visually compare the model’s predictions against the true (actual) values from the test set.
+
+![image](https://github.com/praveen-neshvi/Linear-Regression-for-Yearly-expenses-of-Ecommerce-Clients/blob/main/Images/Screenshot%202025-06-22%20at%206.07.08%E2%80%AFPM.png?raw=true)
+
  If the model is perfect:
 	• All points will lie on a 45-degree diagonal line (y = x)
 	• Prediction = Actual for every test point
@@ -75,15 +88,20 @@ We do this to visually compare the model’s predictions against the true (actua
 	• Points will be scattered randomly
 	• No visible pattern or trend
 
-Evaluation of our linear model
+**Evaluation of our linear model**
 
 Mean Absolute Error: MAE is the average of the absolute differences between predicted values and actual values.
-Formula:![image](https://github.com/user-attachments/assets/230717f6-bb0b-42e0-bc8f-dfe6532bd507)
+
+Formula:
+
+![image](https://github.com/praveen-neshvi/Linear-Regression-for-Yearly-expenses-of-Ecommerce-Clients/blob/main/Images/Screenshot%202025-06-22%20at%206.31.27%E2%80%AFPM.png?raw=true)
 
 
-Mean Squared Error: MSE is the average of the squared differences between predicted and actual values.![image](https://github.com/user-attachments/assets/8abbab6a-9b1e-4df0-85ef-65fe7f90d35a)
+Mean Squared Error: MSE is the average of the squared differences between predicted and actual values.
 
-Evaluation of errors/ residuals
+![image](https://github.com/praveen-neshvi/Linear-Regression-for-Yearly-expenses-of-Ecommerce-Clients/blob/main/Images/Screenshot%202025-06-22%20at%206.32.27%E2%80%AFPM.png?raw=true)
+
+**Evaluation of errors/ residuals**
 
 It is usually assumed in the linear regression that the distribution of the residuals is a normal distribution. The residuals (errors) are normally distributed with mean zero.
 
@@ -97,7 +115,9 @@ We can check whether the residuals are normally distributed or not by using
 	residuals = Target_test - predictions
 	sns.displot(residuals, bins=30, kde=True)
 
-kde=True: Adds a smooth kernel density estimate curve (like a smoothed version of the histogram)![image](https://github.com/user-attachments/assets/d85aad45-d709-47b7-868e-109787e27414)
+kde=True: Adds a smooth kernel density estimate curve (like a smoothed version of the histogram)
+
+![image](https://github.com/praveen-neshvi/Linear-Regression-for-Yearly-expenses-of-Ecommerce-Clients/blob/main/Images/Screenshot%202025-06-22%20at%206.50.46%E2%80%AFPM.png?raw=true)
 
 
 
